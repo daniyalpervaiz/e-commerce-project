@@ -1,176 +1,111 @@
-import React from 'react'
-import Image from 'next/image'
-import { CiMail } from "react-icons/ci";
-import { FaTwitter } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { CiInstagram } from "react-icons/ci";
-import { FaGithub } from "react-icons/fa6";
-
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { CiMail, CiInstagram } from "react-icons/ci";
+import { FaTwitter, FaFacebook, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
-    return (
-        <div className='w-[1441 px] h-[589px]'>
-            <div className='h-[600px] bg-[#F0F0F0]'>
+  return (
+    <div className="bg-[#F0F0F0] wrapper w-full mt-22">
+      {/* Subscription Section */}
+      <div className="wrapper bg-black text-white p-6 text-center md:flex md:justify-between md:items-center">
+        <Image src="/STAY UPTO DATE ABOUT OUR LATEST OFFERS.png" alt="upto"
+          width={551}
+          height={91} />
 
-                <div className='wrapper w-[1240px] h-[180px] justify-between rounded-[20px] bg-black mt-[36px]'>
-                    <div className='ml-[100px] leading-[45px] flex '>
-                        <Image className='mt-12 font-[40px] leading-[45px]'
-                            src="/stay.png" alt="offers"
-                            width={551}
-                            height={94}
-                        />
-                        <div className='w-[349px] h-[108px] mt-[15px] ml-[200px] flex flex-col'>
-                            <div className='w-[349px] h-[48px] flex bg-white rounded-[62px] mt-[10px]'>
-                                <CiMail className='w-[24px] h-[24px] ml-4  mt-2' />
-                                <input className='w-[173px] h-[22px] mt-3 ml-2' type="search" placeholder='Enter your email address' />
-                            </div>
-                            <input className='w-[349px] h-[48px] rounded-[62px] text-center text-black mt-[12px]' type="search" placeholder='Subscribe your Newslater' />
-                        </div>
-                    </div>
-                </div>
+        <div className="flex flex-col md:flex-col items-center gap-4 w-[349px] h-[108px] sm:items-center mt-1">
+          <div className='flex justify-start items-center bg-white rounded-[62px]'>
+            <CiMail className='text-black pl-[26px] w-[40px] h-[24px]' />
+            <input
+              type="email"
+              placeholder="Enter your email address"
 
+              className="px-8 py-2 rounded-full sm:w-[349px] sm:h-[48px]"
+            />
+          </div>
 
-                <div className='wrapper w-[1240px] h-[177px] mt-9 justify-between flex flex-row'>
-
-                    <div className='w-[104px] h-[177px] flex flex-grow justify-between'>
-                        <ul className='w-[248] h-[177px] '>
-                            <li className='gap-[25px]'>
-                                <Image src="/SHOP.CO.png" alt="logo"
-                                    width={167}
-                                    height={23} />
-                                <p className='w-[248px] h-[66px] text-[14px] leading-[26px] mt-4'>We have clothes that suits your style and which you re proud to wear.
-                                    From women to men.
-                                </p>
-                                <div className='flex w-[148px] h-[28px] gap-3 mt-11'>
-
-                                    <FaTwitter className='w-[28px] h-[28px] border-black rounded-lg hover:text-blue-700' />
-
-                                    <FaFacebook className='w-[28px] h-[28px] border-black rounded-lg  hover:text-blue-700' />
-
-
-                                    <CiInstagram className='w-[28px] h-[28px] border-black rounded-lg  hover:text-blue-700' />
-
-
-                                    <FaGithub className='w-[28px] h-[28px] border-black rounded-lg  hover:text-blue-700' />
-
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div>
-                            <h2 className='w-[98px] h-[18px]'>COMPANY</h2>
-                            <ul className='w-[104px] h-[133px] mt-7 flex flex-col gap-3 '>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>About</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px] '>Features</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px] '>Works</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px] '>Career</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className=''>
-                            <h2 className='w-[49px] h-[18px]'>HELP</h2>
-                            <ul className='w-[140px] h-[177px] mt-7 flex flex-col gap-3'>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Customer Support</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Delivery Details</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Terms & Condition</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Privacy policy</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2 className='w-[37px] h-[18px]'>FAQ</h2>
-                            <ul className='w-[149px] h-[177px] mt-7 flex flex-col gap-3'>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Account</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Manage Deliveries</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Orders</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Payments</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h2 className='w-[118px] h-[18px]'>RESOURCES</h2>
-                            <ul className='w-[166px] h-[133px] mt-7 flex flex-col gap-3'>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Free eBoks</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Development Tutorial</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>How to-Blog</a>
-                                </li>
-                                <li>
-                                    <a className='text-gray-600 hover:text-gray-800 leading-[19px] text-[16px]'>Youtube playlist</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div className=' wrapper w-[1240px] mt-[55px] border-[0.5px] border-gray-300'></div>
-
-                <div className='wrapper mt-5'>
-
-                    <Image src="/reserved.png" alt="right reserve"
-                        width={269}
-                        height={19} />
-
-                    <div className='w-[281.07] h-[30.03px] flex flex-row justify-end mt-[-20px]'>
-                        <Image src="/visa.png" alt="visa"
-                            width={80}
-                            height={100} />
-
-                        <Image src="/circle.png" alt="circle"
-                            width={80}
-                            height={30} />
-
-                        <Image src="/paypal.png" alt="paypal"
-                            width={80}
-                            height={30} />
-
-                        <Image src="/pay.png" alt="pay"
-                            width={80}
-                            height={30} />
-                        <Image src="/gpay.png" alt="pay"
-                            width={80}
-                            height={30} />
-
-                    </div>
-                </div>
-
-            </div>
-
+          <input className="px-6 py-2 rounded-full lg:w-[380px] sm:w-[349px] sm:h-[48px] "
+            type="" placeholder="Subscribe to Newsletter"
+          />
 
         </div>
+      </div>
 
+      {/* Footer Links Section */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6 text-black">
+        {/* Brand Section */}
+        <div>
+          <h3 className="text-xl font-bold">SHOP.CO</h3>
+          <p className="text-sm mt-2 text-[#00000099]">
+            We have clothes that suit your style and make you proud to wear them, for men and women alike.
+          </p>
+          <div className="flex gap-4 mt-4">
+            <Link href="https://twitter.com" target="_blank">
+              <FaTwitter className="w-6 h-6 hover:text-blue-500" />
+            </Link>
+            <Link href="https://facebook.com" target="_blank">
+              <FaFacebook className="w-6 h-6 hover:text-blue-500" />
+            </Link>
+            <Link href="https://instagram.com" target="_blank">
+              <CiInstagram className="w-6 h-6 hover:text-pink-500" />
+            </Link>
+            <Link href="https://github.com" target="_blank">
+              <FaGithub className="w-6 h-6 hover:text-gray-700" />
+            </Link>
+          </div>
+        </div>
 
+        {/* Links Sections */}
+        {[
+          {
+            title: "Company",
+            links: ["About", "Features", "Works", "Careers"],
+          },
+          {
+            title: "Help",
+            links: ["Customer Support", "Delivery Details", "Terms & Conditions", "Privacy Policy"],
+          },
+          {
+            title: "FAQ",
+            links: ["Account", "Manage Deliveries", "Orders", "Payments"],
+          },
+          {
+            title: "Resources",
+            links: ["Free eBooks", "Development Tutorials", "How-To Blog", "YouTube Playlist"],
+          },
+        ].map((section, index) => (
+          <div key={index}>
+            <h3 className="text-lg font-normal ml-20">{section.title}</h3>
+            <ul className="mt-4 space-x-2 space-y-4 ml-[70px] text-sm">
+              {section.links.map((link, indx) => (
+                <li key={indx} className="hover:underline cursor-pointer ml-2  text-[#00000099]">
+                  {link}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
 
-    )
-}
+      {/* Footer Bottom */}
+      <div className="bg-gray-400 h-px mx-6"></div>
+      <div className="flex justify-between items-center p-3 text-sm">
+        <p className='text-[#00000099]'>Shop.co © 2000-2023, All Rights Reserved</p>
+        <div className="flex flex-wrap gap-1">
+          {["visa.png", "circle.png", "paypal.png", "pay.png", "gpay.png"].map((pic, index) => (
+            <Image
+              key={index}
+              src={`/${pic}`}
+              alt={`pic ${index + 1}`}
+              width={47}
+              height={32}
+              className="rounded hover:bg-blue-400 cursor-pointer"
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -4,8 +4,9 @@ import { X } from 'lucide-react';
 
 const Topheader = () => {
   return (
-    <div className='w-full h-[38px] bg-black flex gap-[450px]'>
-      <div className='w-[420px] h-[19x] flex items-center ml-[710px] '>
+    <div className='w-full h-[38px] justify-center  bg-black flex'>
+      <div className='flex justify-center'>
+      <div className='h-[19x] lg:w-[1220px] w-full flex items-center justify-center '>
 
 
         <h1 className='font-normal text-[14x] text-white'>Sign up and get 20% off to your first order.</h1>
@@ -13,7 +14,9 @@ const Topheader = () => {
 
 
       </div>
-      <p className='text-white flex items-center '> <X /></p>
+
+      </div>
+      <p className='text-white lg:flex items-center hidden '> <X /></p>
     </div>
   )
 }

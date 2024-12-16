@@ -6,25 +6,25 @@ import { CircleUserRound } from 'lucide-react';
 
 const Header = () => {
     return (
-        <div className='h-[41px] wrapper mt-[17px] flex gap-[40px]'>
+        <div className='h-[41px] md:wrapper mt-[17px] flex gap-[20px] md:gap-[40px] w-full'>
             <div>
-                <h1 className='w-[160px] h-[22px] font-bold text-[32px]'>SHOP.CO</h1>
+                <h1 className='md:w-[160px] md:h-[22px] w-[100px] font-bold text-[24px] md:text-[32px]'>SHOP.CO</h1>
 
             </div>
 
 
-            <div className='w-[321px] h-[22px]'>
-                <ul className='flex text-[16px] justify-between font-normal  pt-[10px]'>
-                    <li className='flex'>Shops <ChevronDown /></li>
+            <div className='md:w-[321px] md:h-[22px] w-full'>
+                <ul className='flex md:text-[16px] text-[10px] md:justify-between items-center gap-2  font-normal  pt-[10px]'>
+                    <li className='flex items-center'>Shops <ChevronDown className='w-[14px]' /></li>
                     <li >On Sale</li>
                     <li>New Arrivals</li>
                     <li>Brands</li>
 
                 </ul>
             </div>
-            <div className='w-[577px] h-[48px] bg-[#F0F0F0] rounded-[62px] flex items-center gap-[12px]'>
-                <Search className="ml-5" />
-                <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] text-[16px] font-normal' />
+            <div className='md:w-[577px] md:h-[48px] bg-[#F0F0F0] md:rounded-[62px] md:flex md:items-center  md:gap-[12px] hidden md:visible  '>
+                <Search className="ml-5 sm:block" />
+                <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] text-[16px] font-normal ' />
             </div>
 
 
@@ -32,9 +32,9 @@ const Header = () => {
 
 
 
-            <div className='flex items-center gap-[14px]'>
-            <ShoppingCart className="w-[24px] h-[24px]" />
-            <CircleUserRound className="w-[24px] h-[24px]" />
+            <div className='flex items-center md:gap-[14px] gap-[10px]'>
+            <ShoppingCart className="md:w-[24px] md:h-[24px] w-[14px]" />
+            <CircleUserRound className="md:w-[24px] md:h-[24px] w-[14px]" />
 
             </div>
 
@@ -44,3 +44,5 @@ const Header = () => {
 }
 
 export default Header
+
+
