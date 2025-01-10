@@ -82,7 +82,7 @@ function NewArrivals() {
             </div>
 
 
-            <div className="wrapper flex flex-col lg:flex-row ">
+            <div className="wrapper flex flex-col md:items-center lg:flex-row lg:space-x-1">
                 {/* Render each item using the Card component */}
                 {items.map((item, index) => (
                     <Card
@@ -101,10 +101,12 @@ function NewArrivals() {
             </div>
 
             {/* View All Top NewArrival Button */}
-            <div className="wrapper w-[218px] h-[52px] border-1 rounded-[62px] bg-gray-200 mt-14  ">
-                <button className="pt-[16px] pr-[54px] pb-[16px] pl-[54px] ml-[24px]">View All</button>
-            </div>
+            <div className="md:ml-[240px] ml-20 lg:ml-8">
+                <div className="wrapper w-[218px] h-[52px]  border-1 rounded-[62px] bg-gray-200 mt-14   ">
+                    <button className="pt-[16px] pr-[54px] pb-[16px] pl-[54px] ml-[24px]">View All</button>
+                </div>
 
+            </div>
         </div>
 
 

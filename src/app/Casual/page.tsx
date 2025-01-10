@@ -98,7 +98,7 @@ const Casual = () => {
             </div>
             <div className='wrapper lg:flex lg:flex-row flex-col'>
                 {/* left side div */}
-                <div className=' w-[295px] h-[1220px] py-[20px] px-[24px] border-2 border-[#0000001A] mt-2 rounded-[20px]'>
+                <div className='w-full lg:w-[295px] h-[1220px] py-[20px] px-[24px] border-2 border-[#0000001A] mt-2 rounded-[20px]'>
                     <div className='flex justify-between'>
                         <h2 className='text-[16px] font-bold'>Filter</h2>
                         <p> <SlidersHorizontal className='w-[16px] h-[20px] text-[#00000099]'></SlidersHorizontal></p>
@@ -212,11 +212,11 @@ const Casual = () => {
                 {/* right side div */}
                 <div className='w-full '>
                     <div className='w-full h-[43px] flex justify-between items-center '>
-                        <h1 className='text-[32px] font-semibold '>Casual</h1>
-                        <div className='flex h-[24px] items-center text-[16px] font-normal '>
-                            <p>Showing 1-10 of 100 Products</p>
+                        <h1 className='md:text-[32px] text-[28px] font-semibold '>Casual</h1>
+                        <div className='flex h-[24px] items-center md:text-[16px] text-[14px] font-normal '>
+                            <p className='ml-4 md:ml-0'>Showing 1-10 of 100 Products</p>
                             <p>Sorted by:</p>
-                            <p className='flex text-[18px] font-semibold items-center'>Most popular <ChevronDown className='w-[16px]' /></p>
+                            <p className='flex md:text-[18px] text-[14px] font-semibold items-center'>Most popular <ChevronDown className='w-[16px]' /></p>
 
                         </div>
 
@@ -225,7 +225,7 @@ const Casual = () => {
 
 
                     </div>
-                    <div className='grid lg:grid-cols-3 grid-col-1 mt-[-20px]'>
+                    <div className='grid lg:grid lg:grid-cols-3 grid-col-1 md:flex md:flex-col md:items-center lg:space-x-1 mt-[-20px]'>
                         {casual_Items.map((item, index) => {
                             return (
                                 <Card

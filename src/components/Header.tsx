@@ -6,15 +6,15 @@ import { CircleUserRound } from 'lucide-react';
 
 const Header = () => {
     return (
-        <div className='h-[41px] md:wrapper mt-[17px] flex gap-[20px] md:gap-[40px] w-full'>
+        <div className='h-[41px] md:wrapper mt-[17px] flex gap-[20px] md:gap-[35px] w-full'>
             <div>
-                <h1 className='md:w-[160px] md:h-[22px] w-[100px] font-bold text-[24px] md:text-[32px]'>SHOP.CO</h1>
+                <h1 className='md:w-[130px] md:h-[22px] w-[100px] font-bold text-[24px] md:text-[32px]'>SHOP.CO</h1>
 
             </div>
 
 
             <div className='md:w-[321px] md:h-[22px] w-full'>
-                <ul className='flex md:text-[16px] text-[10px] md:justify-between items-center gap-2  font-normal  pt-[10px]'>
+                <ul className='flex md:text-[16px] text-[12px] md:justify-between items-center gap-2  font-normal  pt-[10px]'>
                     <li className='flex items-center'>Shops <ChevronDown className='w-[14px]' /></li>
                     <li >On Sale</li>
                     <li>New Arrivals</li>
@@ -32,9 +32,9 @@ const Header = () => {
 
 
 
-            <div className='flex items-center md:gap-[14px] gap-[10px]'>
-            <ShoppingCart className="md:w-[24px] md:h-[24px] w-[14px]" />
-            <CircleUserRound className="md:w-[24px] md:h-[24px] w-[14px]" />
+            <div className='flex items-center md:gap-[12px] gap-[10px] md:mr-7'>
+                <ShoppingCart className="md:w-[24px] md:h-[24px] w-[14px]" />
+                <CircleUserRound className="md:w-[24px] md:h-[24px] w-[14px]" />
 
             </div>
 

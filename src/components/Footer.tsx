@@ -11,9 +11,10 @@ const Footer = () => {
       <div className="wrapper bg-black text-white p-6 text-center md:flex md:justify-between md:items-center">
         <Image src="/STAY UPTO DATE ABOUT OUR LATEST OFFERS.png" alt="upto"
           width={551}
-          height={91} />
+          height={91}
+          className='w-[550px] h-[91px] md:w-[300px] lg:w-[550px]' />
 
-        <div className="flex flex-col md:flex-col items-center gap-4 w-[349px] h-[108px] sm:items-center mt-1">
+        <div className="flex flex-col  items-center gap-4 w-[349px] h-[108px]  mt-1">
           <div className='flex justify-start items-center bg-white rounded-[62px]'>
             <CiMail className='text-black pl-[26px] w-[40px] h-[24px]' />
             <input
@@ -23,16 +24,18 @@ const Footer = () => {
               className="px-8 py-2 rounded-full sm:w-[349px] sm:h-[48px]"
             />
           </div>
+          <div>
 
-          <input className="px-6 py-2 rounded-full lg:w-[380px] sm:w-[349px] sm:h-[48px] "
-            type="" placeholder="Subscribe to Newsletter"
-          />
+            <input className="px-6 py-2 rounded-full lg:w-[380px] sm:w-[349px] sm:h-[48px] "
+              type="" placeholder="Subscribe to Newsletter"
+            />
+          </div>
 
         </div>
       </div>
 
       {/* Footer Links Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 p-6 text-black">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5  p-6 text-black">
         {/* Brand Section */}
         <div>
           <h3 className="text-xl font-bold">SHOP.CO</h3>
