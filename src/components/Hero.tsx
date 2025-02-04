@@ -13,7 +13,7 @@ const Hero = () => {
                             FINDS CLOTHES THAT MATCHES YOUR STYLE
                         </div>
                         <div className='w-full md:w-[350px] lg:w-[545px] lg:h-[33px] text-[16px] font-normal text-[#00000099] leading-[22px] mt-[10px] md:mt-[35px]'>Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</div>
-                        <Link href="/T-Shirt">  <button className='md:w-[210px] md:h-[52px] bg-black rounded-[62px] text-white md:mt-[35px] mt-[24px] ml-[30px] w-[358px] h-[52px]'>Shop Now</button></Link>
+                        <Link href="/ProductListing">  <button className='md:w-[210px] md:h-[52px] bg-black rounded-[62px] text-white md:mt-[35px] mt-[24px] ml-[30px] w-[358px] h-[52px]'>Shop Now</button></Link>
 
 
                         {/* 200+ International Brands,High Quality Products,Happy Customer */}

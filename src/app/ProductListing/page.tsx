@@ -1,92 +1,47 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { ChevronRight } from 'lucide-react';
 import { SlidersHorizontal } from 'lucide-react';
 import { ChevronUp } from 'lucide-react';
 import { ChevronDown } from 'lucide-react';
-import { Card } from "../../components/Card"
 import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import { Check } from 'lucide-react';
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const Casual = () => {
-    const casual_Items = [
-        {
-            image: "/image 8.png",
-            title: "Gradient Graphic T-shirt",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "3.5/5",
-            Saleprice: "$145",
-
-
-        },
-        {
-            image: "/image 9.png",
-            title: "Polo with Tipping Details",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$180",
+const ProductList = () => {
+    const [Products, setProduct] = useState([])
+    const [Search, setSearch] = useState('')
 
 
-        },
-        {
-            image: "/image 10.png",
-            title: "Black Striped T-shirt",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "5.0/5",
-            Saleprice: "$120",
-            originalPrice: "$150",
-            priceDeduction: "-30%",
-        },
-        {
-            image: "/bluejeans.png",
-            title: "SKINNY FIT JEANS",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "3.5/5",
-            Saleprice: "$240",
-            originalPrice: "$260",
-            priceDeduction: "-20%",
+    useEffect(() => {
+        const FetchedData = async () => {
+            const query = `*[_type=="products"]{
+                    _id,
+                    name,
+                    price,
+                    category,
+                    "imageUrl": image.asset->url
+                    
+                    }`
 
-        },
-        {
-            image: "/checkshirt.png",
-            title: "Checkered Shirt",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$180",
-        },
-        {
-            image: "/orangetshirt.png",
-            title: "SLEEVE STRIPED T-SHIRT",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$130",
-            originalPrice: "$160",
-            priceDeduction: "-30%",
-        },
-        {
-            image: "/grayshirt.png",
-            title: "VERTICAL STRIPED SHIRT",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "5.0/5",
-            Saleprice: "$212",
-            originalPrice: "$232",
-            priceDeduction: "-20%",
-        },
-        {
-            image: "/orangeshirt1.png",
-            title: "COURAGE GRAPHIC T-SHIRT",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$145",
-        },
-        {
-            image: "/shorts.png",
-            title: "LOOSE FIT BERMUDA SHORTS",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$80",
-        },
-    ]
+            const fetch_products = await client.fetch(query)
+            setProduct(fetch_products)
+
+
+
+            setSearch(fetch_products)
+
+        }
+        FetchedData()
+
+
+    }, [])
+
+
     return (
         <div className='mb-72'>
             <div className='wrapper mt-4'>
@@ -208,11 +163,15 @@ const Casual = () => {
 
 
 
-                
                 {/* right side div */}
                 <div className='w-full '>
                     <div className='w-full h-[43px] flex justify-between items-center '>
-                        <h1 className='md:text-[32px] text-[28px] font-semibold '>Casual</h1>
+                        <h1 className='md:text-[32px] text-[28px] font-semibold '>Products</h1>
+                        <div className='md:w-[350px] md:h-[48px] bg-[#F0F0F0] md:rounded-[62px] md:flex md:items-center  md:gap-[12px] hidden md:visible  '>
+
+                            <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] text-[16px] font-normal px-10 ' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
+                        </div>
+
                         <div className='flex h-[24px] items-center md:text-[16px] text-[14px] font-normal '>
                             <p className='ml-4 md:ml-0'>Showing 1-10 of 100 Products</p>
                             <p>Sorted by:</p>
@@ -225,23 +184,36 @@ const Casual = () => {
 
 
                     </div>
-                    <div className='grid lg:grid lg:grid-cols-3 grid-col-1 md:flex md:flex-col md:items-center lg:space-x-1 mt-[-20px]'>
-                        {casual_Items.map((item, index) => {
+                    <div className='grid lg:grid lg:grid-cols-3 grid-col-1 md:flex md:flex-col md:items-center lg:space-x-4 mt-[24px]'>{
+                        Products.filter((element: any) => (element.name.toLowerCase()).includes(Search))
+                            .map((item: any, index: any) => {
+                                return (
+                                    <div key={index}>
+
+                                        <div className='h-[450px] border-2'><Image src={urlFor(item.imageUrl).url()} width={300} height={150} className='h-full w-full' alt="pic" /></div>
+                                        <h1 className="text-[20px] font-bold">{item.name}</h1>
+                                        <p className="text-[24px] font-bold text-black ">Price:${item.price}</p> <br />
+                                        <p className='text-[24px]'>Category: <span className="text-[20px]">{item.category}</span></p>
+                                        <Link href={`Dynamic/${item._id}`}><div className='w-full bg-black text-center text-white text-[18px] h-[30px] py-[2px] rounded-xl'><button>More Details</button>
+                                        </div>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+                    </div>
+                    <div className='grid lg:grid lg:grid-cols-3 grid-col-1 md:flex md:flex-col md:items-center lg:space-x-4 mt-[24px]'>{
+                        Products.map((item: any, index: any) => {
                             return (
-                                <Card
-                                    key={index}
-                                    imagePath={item.image}
-                                    title={item.title}
-                                    stars={item.ratingstar}
-                                    rating={item.rating}
-                                    salePrice={item.Saleprice}
-                                    originalPrice={item.originalPrice}
-                                    priceDeduction={item.priceDeduction}
+                                <div key={index}>
 
-
-
-
-                                />
+                                    <div className='h-[450px] border-2'><Image src={urlFor(item.imageUrl).url()} width={300} height={150} className='h-full w-full' alt="pic" /></div>
+                                    <h1 className="text-[20px] font-bold">{item.name}</h1>
+                                    <p className="text-[24px] font-bold text-black ">Price:${item.price}</p> <br />
+                                    <p className='text-[24px]'>Category: <span className="text-[20px]">{item.category}</span></p>
+                                    <Link href={`Dynamic/${item._id}`}><div className='w-full bg-black text-center text-white text-[18px] h-[30px] py-[2px] rounded-xl'><button>More Details</button>
+                                    </div>
+                                    </Link>
+                                </div>
                             )
                         })}
                     </div>
@@ -276,4 +248,4 @@ const Casual = () => {
     )
 }
 
-export default Casual
+export default ProductList

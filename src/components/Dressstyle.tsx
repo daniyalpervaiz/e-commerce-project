@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+
 
 const Dressstyle = () => {
     return (
@@ -13,11 +13,11 @@ const Dressstyle = () => {
                 {/* Casual Style */}
 
                 <div className='lg:w-[1091px] md:flex md:flex-col lg:flex-row md:gap-[40px] mt-10 w-full ml-2 '>
-                    <Link href="/Casual">
+                    
                         <div className='md:w-[650px] lg:w-[407px]  md:h-[200px] lg:h-[289px] w-[400px] h-[190px] flex bg-white rounded-[20px] gap-2 md:ml-10' >
                             <p className='relative top-5 left-14 md:text-[36px] text-[24px] font-bold'>Casual</p>
                             <Image src="/casual.png" width={300} height={300} alt="Casual Design" className='rounded-[20px] md:w-[530px] lg:w-[300px] w-[400px]' />
-                        </div></Link>
+                        </div>
                     {/* Formal Style */}
 
                     <div className='xl:w-[684px] md:w-[650px] lg:w-[450px] md:ml-10 lg:ml-0 lg:h-[289px] w-[400px] h-[190px] md:flex rounded-[20px] bg-white mt-8 md:mt-[0px]'>

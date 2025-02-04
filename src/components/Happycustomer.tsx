@@ -35,7 +35,7 @@ const Happycustomer = () => {
         content: "As someone who s always on the lookout for unique fashion pieces, I m thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends"
     },]
     return (
-        <div className='wrapper flex flex-col mb-44'>
+        <div className='md:wrapper flex flex-col mb-44'>
             <div className='wrapper flex mt-[50px] items-center lg:gap-[522px] pt-[72px] ' >
                 <Image src="/ourhappycustomer.png" alt="customer" width={654} height={58} />
 
@@ -46,7 +46,7 @@ const Happycustomer = () => {
                     <ArrowRight />
                 </div>
             </div>
-            <div className='wrapper flex flex-col lg:flex-row'>
+            <div className='md:wrapper flex flex-col lg:flex-row'>
                 {happyCards.map((item, index) => {
                     return (
 // rendered review cards

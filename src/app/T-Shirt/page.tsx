@@ -1,11 +1,14 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { Ellipsis } from 'lucide-react';
-import { Card } from "../../components/Card"
+
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
 
 // making review cards fro map method
 function ReviewsCards(props: any) {
@@ -77,45 +80,28 @@ const T_Shirt = () => {
 
 
     ]
-    const might_Like = [
-        {
-            image: "/image 7.png",
-            title: "Polo with Contrast Trims",
-            ratingstar: "★★★★", // Stars symbol
-            rating: "4.0/5",
-            Saleprice: "$212",
-            originalPrice: "$242",
-            priceDeduction: "-20%",
-
-        },
-        {
-            image: "/image 8.png",
-            title: "Gradient Graphic T-shirt",
-            ratingstar: "★★★", // Stars symbol
-            rating: "3.5/5",
-            Saleprice: "$145",
-
-
-        },
-        {
-            image: "/image 9.png",
-            title: "Polo with Tipping Details",
-            ratingstar: "★★★★", // Stars symbol
-            rating: "4.5/5",
-            Saleprice: "$180",
-
-        },
-        {
-            image: "/image 10.png",
-            title: "Black Striped T-shirt",
-            ratingstar: "★★★★★", // Stars symbol
-            rating: "5.0/5",
-            Saleprice: "$120",
-            originalPrice: "$150",
-            priceDeduction: "-30%",
-        },
-
-    ]
+   const [Products,setProduct]=useState([])
+   
+   
+       useEffect(() => {
+           const FetchedData = async () => {
+               const query = `*[_type=="products"][15...18]{
+                   _id,
+                   name,
+                   price,
+                   category,
+                   "imageUrl": image.asset->url
+                   
+                   }`
+   
+               const fetch_products = await client.fetch(query)
+               setProduct(fetch_products)
+               console.log(fetch_products)
+   
+              
+           }
+           FetchedData()
+       }, [])
     return (
         <div>
             <div className='wrapper'>
@@ -243,24 +229,20 @@ const T_Shirt = () => {
                 <Image src="/You might also like.png" alt='heading' width={579} height={58} />
 
             </div>
-            <div className='wrapper flex flex-col md:items-center mb-14 lg:flex-row lg:space-x-1'>
-                {might_Like.map((item, index) => {
+            <div className='wrapper grid grid-cols-1 md:grid-cols-3 mb-14 mt-4  md:space-x-4'>
+                {Products.map((item:any, index:any) => {
                     return (
-                        // rendered card using map method
-                        <Card
-                            key={index} // Ensure each card has a unique key
-                            imagePath={item.image}
-                            title={item.title}
-                            stars={item.ratingstar}
-                            rating={item.rating}
-                            salePrice={item.Saleprice}
-                            originalPrice={item.originalPrice}
-                            priceDeduction={item.priceDeduction}
+                        <div key={index}>
 
-
-
-                        />
-                    )
+                        <div className='h-[450px] border-2'><Image src={urlFor(item.imageUrl).url()} width={300} height={150} className='h-full w-full' alt="pic" /></div>
+                        <h1 className="text-[20px] font-bold">{item.name}</h1>
+                        <p className="text-[24px] font-bold text-black ">Price:${item.price}</p> <br />
+                        <p className='text-[24px]'>Category: <span className="text-[20px]">{item.category}</span></p>
+                        <Link href={`Dynamic/${item._id}`}><div className='w-full bg-red-700 text-center text-white h-[30px]'><button>More Detail</button>
+                        </div>
+                        </Link>
+                    </div>)
+                     
 
                 })}
 

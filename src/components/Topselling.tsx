@@ -1,81 +1,68 @@
-import React from 'react'
-import { Card } from './Card'
+"use client"
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { client } from '@/sanity/lib/client'
+import { urlFor } from '@/sanity/lib/image'
+import Link from 'next/link'
 
 
 const Topselling = () => {
-    const items = [{
-        image: "/grayshirt.png",
-        title: "VERTICAL STRIPED SHIRT",
-        ratingstar: "★★★★★", // Stars symbol
-        rating: "5.0/5",
-        Saleprice: "$212",
-        originalPrice: "$232",
-        priceDeduction: "-20%",
 
-    },
-    {
-        image: "/orangeshirt1.png",
-        title: "COURAGE GRAPHIC T-SHIRT",
-        ratingstar: "★★★★", // Stars symbol
-        rating: "4.0/5",
-        Saleprice: "$145"
+const [Products,setProduct]=useState([])
 
 
 
-    },
-    {
-        image: "/shorts.png",
-        title: "LOOSE FIT BERMUDA SHORTS",
-        ratingstar: "★★★", // Stars symbol
-        rating: "3.0/5",
-        Saleprice: "$80",
-    },
-    {
-        image: "/jeans.png",
-        title: "FADED SKINNY JEANS",
-        ratingstar: "★★★★★", // Stars symbol
-        rating: "4.5/5",
-        Saleprice: "$120",
 
-    },
+    useEffect(() => {
+        const FetchedData = async () => {
+            const query = `*[_type=="products"][0...6]{
+                _id,
+                name,
+                price,
+                category,
+                "imageUrl": image.asset->url
+                
+                }`
+                
+              
+            const fetch_products = await client.fetch(query)
+            setProduct(fetch_products)
+            console.log(fetch_products)
+       
 
-    ]
+           
+        }
+        FetchedData()
+    }, [])
+
     return (
 
-        <div className='mt-10'>
+        <div className='mt-10' id="topselling">
             <div className='wrapper flex flex-col '>
-                <div className='wrapper flex  items-center  mt-[70px]' >
+                <div className='wrapper flex  items-center mt-[70px]' >
                     <Image src="/topselling.png" alt="customer" width={403} height={58} />
                 </ div>
 
             </div>
-            <div className="wrapper flex lg:flex-row flex-col md:items-center lg:space-x-1">
-                {/* Render each item using the Card component */}
-                {items.map((item, index) => (
-                    <Card
-                        key={index} // Ensure each card has a unique key
-                        imagePath={item.image}
-                        title={item.title}
-                        stars={item.ratingstar}
-                        rating={item.rating}
-                        salePrice={item.Saleprice}
-                        originalPrice={item.originalPrice}
-                        priceDeduction={item.priceDeduction}
+            <div className="wrapper grid md:grid-cols-2 md:space-x-2 lg:grid-cols-3 grid-col-1 md:items-center lg:space-x-6 mt-4 space-y-5">
 
+                {Products.map((item: any,index:any) => (
+                    <div key={index}>
 
-                    />
+                        <div className='h-[450px] border-2'><Image src={urlFor(item.imageUrl).url()} width={300} height={150} className='h-full w-full' alt="pic" /></div>
+                        <h1 className="text-[20px] font-bold">{item.name}</h1>
+                        <p className="text-[24px] font-bold text-black ">Price:${item.price}</p> <br />
+                        <p className='text-[24px]'>Category: <span className="text-[20px]">{item.category}</span></p>
+                        <Link href={`Dynamic/${item._id}`}><div className='w-full bg-black text-center text-white text-[18px] h-[30px] py-[2px] rounded-xl'><button>More Detail</button>
+                        </div>
+                        </Link>
+                    </div>
 
                 ))}
 
 
             </div>
-            {/* View All Top Selling Button */}
-            <div className="md:ml-[240px] ml-20 lg:ml-8">
-                <div className="wrapper w-[218px] h-[52px] border-1 rounded-[62px] bg-gray-200 mt-14 ">
-                    <button className="pt-[16px] pr-[54px] pb-[16px] pl-[54px] ml-[24px]">View All</button>
-                </div>
-            </div>
+          
         </div>
     )
 }
