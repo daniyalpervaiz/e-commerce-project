@@ -166,18 +166,13 @@ const ProductList = () => {
                 {/* right side div */}
                 <div className='w-full '>
                     <div className='w-full h-[43px] flex justify-between items-center '>
-                        <h1 className='md:text-[32px] text-[28px] font-semibold '>Products</h1>
-                        <div className='md:w-[350px] md:h-[48px] bg-[#F0F0F0] md:rounded-[62px] md:flex md:items-center  md:gap-[12px] hidden md:visible  '>
+                        <h1 className='md:text-[32px] text-[28px] font-semibold px-2'>Products</h1>
+                        <div className='md:w-[350px] md:h-[48px] bg-[#F0F0F0] rounded-lg md:rounded-[62px] md:flex md:items-center  md:gap-[12px] w-[280px] '>
 
-                            <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] text-[16px] font-normal px-10 ' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
+                            <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] md:text-[16px] text-[14px] font-normal md:px-10 px-2 ' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
                         </div>
 
-                        <div className='flex h-[24px] items-center md:text-[16px] text-[14px] font-normal '>
-                            <p className='ml-4 md:ml-0'>Showing 1-10 of 100 Products</p>
-                            <p>Sorted by:</p>
-                            <p className='flex md:text-[18px] text-[14px] font-semibold items-center'>Most popular <ChevronDown className='w-[16px]' /></p>
-
-                        </div>
+                       
 
 
 
