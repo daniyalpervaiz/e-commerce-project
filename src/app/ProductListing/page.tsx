@@ -166,13 +166,8 @@ const ProductList = () => {
                 {/* right side div */}
                 <div className='w-full '>
                     <div className='w-full h-[43px] flex justify-between items-center '>
-<<<<<<< HEAD
                         <h1 className='md:text-[32px] text-[28px] font-semibold px-2'>Products</h1>
                         <div className='md:w-[350px] md:h-[48px] bg-[#F0F0F0] rounded-lg md:rounded-[62px] md:flex md:items-center  md:gap-[12px] w-[280px] '>
-=======
-                        <h1 className='md:text-[32px] text-[28px] font-semibold '>Products</h1>
-                      <div className='md:w-[350px] md:h-[48px] bg-[#F0F0F0] rounded-lg md:rounded-[62px] md:flex md:items-center  md:gap-[12px] w-[280px] '>
->>>>>>> 4a0a831a966b76abc16048ffb711a54d30db2398
 
                             <input type="text" placeholder="Search For Products..." className='bg-[#F0F0F0] md:text-[16px] text-[14px] font-normal md:px-10 px-2 ' onChange={(e) => setSearch(e.target.value.toLowerCase())} />
                         </div>
