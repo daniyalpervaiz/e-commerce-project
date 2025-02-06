@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import { CgChevronRight } from "react-icons/cg";
 import { getCartItems } from "../action/action";
 import { Product } from "../types/products";
+import { client } from "@/sanity/lib/client";
 
 
 export default function CheckoutPage() {
@@ -67,14 +68,40 @@ export default function CheckoutPage() {
     setFormErrors(errors);
     return Object.values(errors).every((error) => !error);
   };
+    // if (validateForm()) {
+    //   localStorage.removeItem("appliedDiscount");
+    // //   toast.success("Order placed successfully!");
+    // } else {
+    // //   toast.error("Please fill in all the fields.");
+    // }
 
-  const handlePlaceOrder = () => {
-    if (validateForm()) {
-      localStorage.removeItem("appliedDiscount");
-    //   toast.success("Order placed successfully!");
-    } else {
-    //   toast.error("Please fill in all the fields.");
+  const handlePlaceOrder = async () => {
+    const orderData={
+      _type:"order",
+      firstName:formValues.firstName,
+      lastName:formValues.lastName,
+      address:formValues.address,
+      city:formValues.city,
+      zipCode:formValues.zipCode,
+      phone:formValues.phone,
+      email:formValues.email,
+      cartItem:cartItems.map((item)=>({
+        _type:"reference",
+        _ref:item._id
+
+      })),
+      total:total,
+      discount:discount,
+      orderDate:new Date().toISOString
     }
+    try{
+      await client.create(orderData)
+      localStorage.removeItem("appliedDiscount")
+    }
+  catch(error){
+    console.error("error creating order",error)
+  }
+
   };
 
   return (

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { ChevronRight } from 'lucide-react';
 import { SlidersHorizontal } from 'lucide-react';
 import { ChevronUp } from 'lucide-react';
-import { ChevronDown } from 'lucide-react';
 import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import { Check } from 'lucide-react';
@@ -15,6 +14,7 @@ import Image from 'next/image';
 const ProductList = () => {
     const [Products, setProduct] = useState([])
     const [Search, setSearch] = useState('')
+    
 
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const ProductList = () => {
                 <ul className='flex text-[12px] items-center'>
                     <li>Home</li>
                     <li><ChevronRight className='w-[16px]' /></li>
-                    <li>Casuale</li>
+                    <li>Products</li>
                 </ul>
             </div>
             <div className='wrapper lg:flex lg:flex-row flex-col'>
