@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+export default defineType ({
     name: "order",
     type: "document",
     title: "Order",
@@ -75,4 +77,4 @@ export default {
 
 
 
-}
+})
