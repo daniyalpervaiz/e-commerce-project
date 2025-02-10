@@ -10,10 +10,14 @@ import { client } from '@/sanity/lib/client';
 import { urlFor } from '@/sanity/lib/image';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Product } from '../types/products';
 
 const ProductList = () => {
-    const [Products, setProduct] = useState([])
+    const [Products, setProduct] = useState<Product[]>([])
     const [Search, setSearch] = useState('')
+    const [Filter, setFilter] = useState<Product[]>([])
+    const [PriceRange, setPriceRange] = useState<number>(100)
+
     
 
 
@@ -30,6 +34,7 @@ const ProductList = () => {
 
             const fetch_products = await client.fetch(query)
             setProduct(fetch_products)
+            setFilter(fetch_products)
 
 
 
@@ -40,6 +45,16 @@ const ProductList = () => {
 
 
     }, [])
+
+    useEffect(()=>{
+        const filterProducts=Products.filter(product=>product.price<=PriceRange)
+        setFilter(filterProducts)
+    },[PriceRange,Products])
+
+
+    const handlePriceChange=(e:React.ChangeEvent<HTMLInputElement>)=>[
+        setPriceRange(Number(e.target.value))
+    ]
 
 
     return (
@@ -75,18 +90,16 @@ const ProductList = () => {
                         <h2 className='text-[16px] font-bold'>Price</h2>
                         <p> <ChevronUp className='w-[16px]' /></p>
                     </div>
-                    <div className='w-[247px] h-[6px] bg-slate-300 flex justify-center items-center'>
-                        <div className='flex justify-between w-[150px] h-[6px] bg-black items-center'>
-                            <div className='bg-black w-[20px] h-[20px] border-2 border-black rounded-full'  ></div>
+                   <input type="range"
+                   min="50"
+                   max="300"
+                   className='w-full'
+                   value={PriceRange}
+                   onChange={handlePriceChange}
 
-                            <div className='bg-black w-[20px] h-[20px] border-2 border-black rounded-full' ></div>
-
-                        </div>
-                    </div>
-                    <div className='flex justify-around mt-5 text-[14px]'>
-                        <p>$50</p>
-                        <p>$150</p>
-                    </div>
+                    />
+                    <p>Price Range in $:{PriceRange}</p>
+                    
                     <hr className='bg-gray-300 mt-5' />
 
 
@@ -197,7 +210,7 @@ const ProductList = () => {
                             })}
                     </div>
                     <div className='grid lg:grid lg:grid-cols-3 grid-col-1 md:flex md:flex-col md:items-center lg:space-x-4 mt-[24px]'>{
-                        Products.map((item: any, index: any) => {
+                        Filter.map((item: any, index: any) => {
                             return (
                                 <div key={index}>
 
