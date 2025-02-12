@@ -16,7 +16,7 @@ const ProductList = () => {
     const [Products, setProduct] = useState<Product[]>([])
     const [Search, setSearch] = useState('')
     const [Filter, setFilter] = useState<Product[]>([])
-    const [PriceRange, setPriceRange] = useState<number>(100)
+    const [PriceRange, setPriceRange] = useState<number>(300)
 
     
 

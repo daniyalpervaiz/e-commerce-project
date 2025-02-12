@@ -5,7 +5,7 @@ import Link from 'next/link'
 const Hero = () => {
     return (
         <div>
-            <div className='w-full md:h-[663px] h-[980px]  mt-[17px] bg-[#F2F0F1]'>
+            <div className='w-[420px] md:w-[768px] lg:w-[1024px] 2xl:w-screen md:h-[663px] h-[980px]  mt-[17px] bg-[#F2F0F1]'>
                 <div className='md:wrapper  h-[663px] md:flex w-full '>
                     {/* Hero Section Title */}
                     <div className='flex flex-col w-full'>
@@ -52,8 +52,8 @@ const Hero = () => {
  
             </div>
             {/* Brands Section */}
-            <div className='w-full bg-black'>
-                <div className='wrapper md:h-[122px] h-[120px]  md:flex md:flex-col lg:flex-row md:items-center md:justify-around'>
+            <div className='w-[420px] md:w-[768px] lg:w-[1024px] 2xl:w-screen  bg-black'>
+                <div className='md:wrapper md:h-[122px] h-[120px]  md:flex md:flex-col lg:flex-row md:items-center md:justify-around'>
                     <div className='flex justify-around md:gap-20 pt-4 items-center'>
 
                         <Image src="/versace.png" alt="versace" width={100} height={50} className="md:w-[166.48px] md:h-[33.16px] w-[116px]" />

@@ -14,7 +14,7 @@ const Footer = () => {
           height={91}
           className='w-[550px] h-[91px] md:w-[300px] lg:w-[550px]' />
 
-        <div className="flex flex-col  items-center gap-4 w-[349px] h-[108px]  mt-1">
+        <div className="flex flex-col  items-center gap-4 md:w-[349px] h-[108px]  mt-1">
           <div className='flex justify-start items-center bg-white rounded-[62px]'>
             <CiMail className='text-black pl-[26px] w-[40px] h-[24px]' />
             <input
